@@ -1,0 +1,30 @@
+.background {
+  background-color: #3f3f3f;
+  box-shadow: 5px 5px 5px 5px;
+  border-radius: 10px;
+  height: 500px;
+  width: 90%;
+  margin: auto;
+  color: #ffffff;
+  font-variant: small-caps;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.column {
+  float: left;
+  width: 33.33%;
+  padding-top: 5%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}
