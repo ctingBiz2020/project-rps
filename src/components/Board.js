@@ -9,21 +9,22 @@ class Board extends Component {
     this.state = {
       playOne: 1,
       playTwo: 0,
-      roundCount: 2,
+      roundCount: 1,
     };
   }
 
   render() {
+    const { playOne, playTwo, roundCount } = this.state;
     return (
       <div className="background row">
         <div className="column">
-          <Player status={this.state.playOne} />
+          <Player status={playOne} />
         </div>
         <div className="column">
-          <p>This is the boards Round {this.state.roundCount}</p>
+          <p>This is the boards Round {roundCount}</p>
         </div>
         <div className="column">
-          <Player status={this.state.playTwo} />
+          <Player status={playTwo} />
         </div>
       </div>
     );

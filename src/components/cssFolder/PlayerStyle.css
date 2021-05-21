@@ -7,3 +7,11 @@
   margin: auto;
   font-family: "Courier New", Courier, monospace;
 }
+
+#picture {
+  width: 175px;
+  height: 175px;
+  margin: auto;
+  box-shadow: 5px 5px #ffdf6c;
+  border-radius: 10px;
+}
