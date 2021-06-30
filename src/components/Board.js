@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { selectPaper, selectRock, selectScissors } from "../actions/selection";
@@ -17,74 +18,24 @@ export class Board extends Component {
     };
   }
 
-  resultRock = () => {
-    this.setState(this.player = 0)
-    let computer = Math.floor(Math.random() * 3);
-
-    this.setState((prevState) => {
-      let score = Object.assign({}, prevState.score);
-      switch (computer) {
-        case 0:
-          score.tie++;
-          break;
-        case 1:
-          score.lose++;
-          break;
-        case 2:
-          score.win++;
-          break;
-        default:
-          return { score };
+  getResultPost = (value) => {
+    this.setState(
+      {
+        player: value,
+      },
+      () => {
+        axios.post("http://localhost:8080/computer", this.state).then((res) => {
+          this.setState(res.data);
+        });
       }
-      return { score };
-    });
-  };
-
-  resultPaper = () => {
-    let computer = Math.floor(Math.random() * 3);
-
-    this.setState((prevState) => {
-      let score = Object.assign({}, prevState.score);
-      switch (computer) {
-        case 0:
-          score.win++;
-          break;
-        case 1:
-          score.tie++;
-          break;
-        case 2:
-          score.lose++;
-          break;
-        default:
-          return { score };
-      }
-      return { score };
-    });
-  };
-
-  resultScissors = () => {
-    let computer = Math.floor(Math.random() * 3);
-
-    this.setState((prevState) => {
-      let score = Object.assign({}, prevState.score);
-      switch (computer) {
-        case 0:
-          score.lose++;
-          break;
-        case 1:
-          score.win++;
-          break;
-        case 2:
-          score.tie++;
-          break;
-        default:
-          return { score };
-      }
-      return { score };
-    });
+    );
   };
 
   render() {
+    const rock = 0;
+    const paper = 1;
+    const scissors = 2;
+
     return (
       <div>
         <h2>ScoreBoard</h2>
@@ -93,13 +44,16 @@ export class Board extends Component {
           {this.state.score.win} - {this.state.score.tie} -{" "}
           {this.state.score.lose}
         </p>
-        <button onClick={this.resultRock} className="btn-rock">
+        <button onClick={() => this.getResultPost(rock)} className="btn-rock">
           Rock
         </button>
-        <button onClick={this.resultPaper} className="btn-paper">
+        <button onClick={() => this.getResultPost(paper)} className="btn-paper">
           Paper
         </button>
-        <button onClick={this.resultScissors} className="btn-scissors">
+        <button
+          onClick={() => this.getResultPost(scissors)}
+          className="btn-scissors"
+        >
           Scissors
         </button>
       </div>
