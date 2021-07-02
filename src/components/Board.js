@@ -5,6 +5,7 @@ import { selectPaper, selectRock, selectScissors } from "../actions/selection";
 import Picture from "./Picture";
 import { Container, Row, Col } from "react-bootstrap";
 import { Button } from "react-bootstrap";
+import "./Board.css";
 
 export class Board extends Component {
   constructor() {
@@ -42,12 +43,14 @@ export class Board extends Component {
     return (
       <Container>
         <Row>
-          <h2>ScoreBoard</h2>
-          <p>W - T - L</p>
-          <p className="score">
-            {this.state.score.win} - {this.state.score.tie} -{" "}
-            {this.state.score.lose}
-          </p>
+          <Col>
+            <h2>Rock-Paper-Scissors</h2>
+            <div className="score">
+              <div id="win">{this.state.score.win}</div>
+              <div id="tie">{this.state.score.tie}</div>
+              <div id="lose">{this.state.score.lose}</div>
+            </div>
+          </Col>
         </Row>
         <Row>
           <Col md="auto">
