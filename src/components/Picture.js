@@ -1,4 +1,5 @@
 import React from "react";
+import "./Picture.css";
 import rock from "../image/rock.jpg";
 import paper from "../image/paper.jpg";
 import scissor from "../image/scissors.jpg";
@@ -9,18 +10,18 @@ function Picture(props) {
   //console.log(this.props.value);
   switch (props.value) {
     case 0:
-      replace = <img src={rock} alt="Rock"></img>;
+      replace = <img className="pic" src={rock} alt="Rock" rounded></img>;
       break;
     case 1:
-      replace = <img src={paper} alt="Paper"></img>;
+      replace = <img className="pic" src={paper} alt="Paper" rounded></img>;
       break;
     case 2:
-      replace = <img src={scissor} alt="Scissor"></img>;
+      replace = <img className="pic" src={scissor} alt="Scissor" rounded></img>;
       break;
     default:
-      replace = <img src={blank} alt="Blank"></img>;
+      replace = <img className="pic" src={blank} alt="Blank" rounded></img>;
   }
-  return <div>{replace}</div>;
+  return <div id="pic">{replace}</div>;
 }
 
 export default Picture;

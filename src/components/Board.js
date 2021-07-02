@@ -57,18 +57,24 @@ export class Board extends Component {
             <div>
               <Picture value={this.state.player} />
               <Button
+                id="button"
+                variant="success"
                 onClick={() => this.getResultPost(rock)}
                 className="btn-rock"
               >
                 Rock
               </Button>
               <Button
+                id="button"
+                variant="success"
                 onClick={() => this.getResultPost(paper)}
                 className="btn-paper"
               >
                 Paper
               </Button>
               <Button
+                id="button"
+                variant="success"
                 onClick={() => this.getResultPost(scissors)}
                 className="btn-scissors"
               >
