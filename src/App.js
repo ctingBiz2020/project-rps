@@ -1,11 +1,10 @@
 import "./App.css";
 import Board from "./components/Board";
-import NavBarComp from "./components/NavBarComp";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (
     <div className="App">
-      <NavBarComp />
       <Board />
     </div>
   );

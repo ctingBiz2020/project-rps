@@ -1,0 +1,3 @@
+export const SELECT_ROCK = "SELECT_ROCK";
+export const SELECT_PAPER = "SELECT_PAPER";
+export const SELECT_SCISSORS = "SELECT_SCISSORS";
